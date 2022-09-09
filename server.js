@@ -21,7 +21,15 @@ const orderRouter = require('./route/orderRoute')
 //configuration
 app.use(cors());
 app.use(cookieParser(process.env.REF_TOKEN_SECRET));
-app.use(helmet());
+app.use(helmet.contentSecurityPolicy({
+    directives: {
+        defaultSrc: ["'self'"],
+        scriptSrcElem: ["'self'", "'unsafe-inline'"],
+        styleSrc: ["'slef'", "'unsafe-inline'"],
+        connectSrc: ['www.googleapis.com'],
+        imgSrc: ["'self'", '*.unsplash.com', '*.google.com']
+    }
+}));
 app.use(fileUpload({
     useTempFiles: true
 }));
