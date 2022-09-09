@@ -26,7 +26,7 @@ app.use(helmet.contentSecurityPolicy({
         defaultSrc: ["'self'"],
        // scriptSrcElem: ["'self'", "'unsafe-inline'"],
         //styleSrc: ["'slef'", "'unsafe-inline'"],
-        //connectSrc: ['www.googleapis.com'],
+        connectSrc: ['www.googleapis.com'],
         imgSrc: ["'self'", '*.unsplash.com', '*.google.com']
     }
 }));
